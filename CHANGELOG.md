@@ -2,6 +2,25 @@
 
 <!-- <START NEW CHANGELOG ENTRY> -->
 
+## 0.4.0
+
+([Full Changelog](https://github.com/brichet/jupyter-chat-components/compare/v0.3.0...1b8209239a10da845957fc0ea93a1c32c023d6e4))
+
+### Enhancements made
+
+- Add a new component for grouped tool calls [#12](https://github.com/brichet/jupyter-chat-components/pull/12) ([@jtpio](https://github.com/jtpio), [@brichet](https://github.com/brichet))
+
+### Contributors to this release
+
+The following people contributed discussions, new ideas, code and documentation contributions, and review.
+See [our definition of contributors](https://github-activity.readthedocs.io/en/latest/use/#how-does-this-tool-define-contributions-in-the-reports).
+
+([GitHub contributors page for this release](https://github.com/brichet/jupyter-chat-components/graphs/contributors?from=2026-04-08&to=2026-04-09&type=c))
+
+@brichet ([activity](https://github.com/search?q=repo%3Abrichet%2Fjupyter-chat-components+involves%3Abrichet+updated%3A2026-04-08..2026-04-09&type=Issues)) | @jtpio ([activity](https://github.com/search?q=repo%3Abrichet%2Fjupyter-chat-components+involves%3Ajtpio+updated%3A2026-04-08..2026-04-09&type=Issues))
+
+<!-- <END NEW CHANGELOG ENTRY> -->
+
 ## 0.3.0
 
 ([Full Changelog](https://github.com/brichet/jupyter-chat-components/compare/v0.2.0...5c747a08eafda31663b8109f6162ac2355060b97))
@@ -23,8 +42,6 @@ See [our definition of contributors](https://github-activity.readthedocs.io/en/l
 ([GitHub contributors page for this release](https://github.com/brichet/jupyter-chat-components/graphs/contributors?from=2026-03-16&to=2026-04-08&type=c))
 
 @brichet ([activity](https://github.com/search?q=repo%3Abrichet%2Fjupyter-chat-components+involves%3Abrichet+updated%3A2026-03-16..2026-04-08&type=Issues)) | @jtpio ([activity](https://github.com/search?q=repo%3Abrichet%2Fjupyter-chat-components+involves%3Ajtpio+updated%3A2026-03-16..2026-04-08&type=Issues)) | @Yahiewi ([activity](https://github.com/search?q=repo%3Abrichet%2Fjupyter-chat-components+involves%3AYahiewi+updated%3A2026-03-16..2026-04-08&type=Issues))
-
-<!-- <END NEW CHANGELOG ENTRY> -->
 
 ## 0.2.0
 
