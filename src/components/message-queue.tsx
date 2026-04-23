@@ -32,7 +32,24 @@ export const MessageQueue: React.FC<IMessageQueueProps> = ({
     <div className="jp-chat-message-queue">
       {messages.map(msg => (
         <div key={msg.id} className="jp-chat-message-queue-bubble">
-          <span className="jp-chat-message-queue-text">{msg.body}</span>
+          <div className="jp-chat-message-queue-content">
+            {msg.body && (
+              <span className="jp-chat-message-queue-text">{msg.body}</span>
+            )}
+            {msg.attachments && msg.attachments.length > 0 && (
+              <div className="jp-chat-message-queue-attachments">
+                {msg.attachments.map((attachment, index) => (
+                  <span
+                    key={index}
+                    className="jp-chat-message-queue-attachment-item"
+                    title={attachment.value}
+                  >
+                    📎 {attachment.value.split('/').pop()}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
           {removeQueuedMessage && targetId && (
             <button
               className="jp-chat-message-queue-remove"

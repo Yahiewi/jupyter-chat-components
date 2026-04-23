@@ -302,6 +302,7 @@ export interface IInlineDiffMetadata {
 export interface IQueuedMessage {
   id: string;
   body: string;
+  attachments?: any[];
 }
 
 /**
