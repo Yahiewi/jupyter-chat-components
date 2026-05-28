@@ -64,6 +64,8 @@ export const MicRecorder: React.FC<IMicRecorderProps> = ({
   }, [mode]);
 
   const isCapturingRef = React.useRef(false);
+  const barRefs = React.useRef<HTMLDivElement[]>([]);
+  const audioContextRef = React.useRef<AudioContext | null>(null);
 
   const startCapture = async () => {
     stopAllCapture();
@@ -75,6 +77,50 @@ export const MicRecorder: React.FC<IMicRecorderProps> = ({
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         streamRef.current = stream;
         audioChunksRef.current = [];
+
+        // Set up real-time audio visualizer
+        try {
+          const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+          const audioCtx = new AudioContextClass();
+          audioContextRef.current = audioCtx;
+          const source = audioCtx.createMediaStreamSource(stream);
+          const analyser = audioCtx.createAnalyser();
+          analyser.fftSize = 32;
+          source.connect(analyser);
+
+          const bufferLength = analyser.frequencyBinCount;
+          const dataArray = new Uint8Array(bufferLength);
+
+          let lastTimestamp = 0;
+          const throttleMs = 100; // 10 FPS
+          const updateVisualizer = (timestamp: number) => {
+            if (!isCapturingRef.current) {
+              return;
+            }
+            requestAnimationFrame(updateVisualizer);
+
+            if (timestamp - lastTimestamp < throttleMs) {
+              return;
+            }
+            lastTimestamp = timestamp;
+
+            analyser.getByteFrequencyData(dataArray);
+
+            // Animate our 8 bar elements in real-time
+            for (let i = 0; i < 8; i++) {
+              const bar = barRefs.current[i];
+              if (bar) {
+                const value = dataArray[i] || 0;
+                // Scale value between 15% and 100% height
+                const heightPercent = Math.min(Math.max((value / 255) * 100, 15), 100);
+                bar.style.height = `${heightPercent}%`;
+              }
+            }
+          };
+          requestAnimationFrame(updateVisualizer);
+        } catch (visErr) {
+          console.warn('Failed to initialize live visualizer:', visErr);
+        }
 
         const mediaRecorder = new MediaRecorder(stream);
         mediaRecorderRef.current = mediaRecorder;
@@ -172,6 +218,18 @@ export const MicRecorder: React.FC<IMicRecorderProps> = ({
       timerIntervalRef.current = null;
     }
 
+    // Stop and close AudioContext
+    if (audioContextRef.current) {
+      try {
+        if (audioContextRef.current.state !== 'closed') {
+          audioContextRef.current.close();
+        }
+      } catch (e) {
+        console.warn('Failed to close AudioContext:', e);
+      }
+      audioContextRef.current = null;
+    }
+
     // Stop MediaRecorder
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
       try {
@@ -232,14 +290,17 @@ export const MicRecorder: React.FC<IMicRecorderProps> = ({
 
       {/* Modern Waveform Visualizer */}
       <div className="jp-ai-wave-container">
-        <div className="jp-ai-wave-bar"></div>
-        <div className="jp-ai-wave-bar"></div>
-        <div className="jp-ai-wave-bar"></div>
-        <div className="jp-ai-wave-bar"></div>
-        <div className="jp-ai-wave-bar"></div>
-        <div className="jp-ai-wave-bar"></div>
-        <div className="jp-ai-wave-bar"></div>
-        <div className="jp-ai-wave-bar"></div>
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className={`jp-ai-wave-bar${mode === 'dictation' ? ' jp-ai-animating' : ''}`}
+            ref={(el) => {
+              if (el) {
+                barRefs.current[i] = el;
+              }
+            }}
+          />
+        ))}
       </div>
 
       {/* Done & Cancel buttons */}

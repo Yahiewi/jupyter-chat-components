@@ -748,16 +748,21 @@ details[open].jp-ai-tool-call-item summary::after,
   height: 4px;
   background-color: var(--jp-error-color1);
   border-radius: 2px;
+  transition: height 0.08s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fallback animation if Web Audio is not actively driving the height */
+.jp-ai-wave-bar.jp-ai-animating {
   animation: jp-ai-wave-anim 1.2s ease-in-out infinite alternate;
 }
 
-.jp-ai-wave-bar:nth-child(2) { animation-delay: 0.10s; }
-.jp-ai-wave-bar:nth-child(3) { animation-delay: 0.20s; }
-.jp-ai-wave-bar:nth-child(4) { animation-delay: 0.30s; }
-.jp-ai-wave-bar:nth-child(5) { animation-delay: 0.40s; }
-.jp-ai-wave-bar:nth-child(6) { animation-delay: 0.15s; }
-.jp-ai-wave-bar:nth-child(7) { animation-delay: 0.25s; }
-.jp-ai-wave-bar:nth-child(8) { animation-delay: 0.35s; }
+.jp-ai-wave-bar.jp-ai-animating:nth-child(2) { animation-delay: 0.10s; }
+.jp-ai-wave-bar.jp-ai-animating:nth-child(3) { animation-delay: 0.20s; }
+.jp-ai-wave-bar.jp-ai-animating:nth-child(4) { animation-delay: 0.30s; }
+.jp-ai-wave-bar.jp-ai-animating:nth-child(5) { animation-delay: 0.40s; }
+.jp-ai-wave-bar.jp-ai-animating:nth-child(6) { animation-delay: 0.15s; }
+.jp-ai-wave-bar.jp-ai-animating:nth-child(7) { animation-delay: 0.25s; }
+.jp-ai-wave-bar.jp-ai-animating:nth-child(8) { animation-delay: 0.35s; }
 
 @keyframes jp-ai-wave-anim {
   0% {
