@@ -2,6 +2,30 @@
 
 <!-- <START NEW CHANGELOG ENTRY> -->
 
+## 0.6.0
+
+([Full Changelog](https://github.com/jupyter-ai-contrib/jupyter-chat-components/compare/v0.5.0...1738e5cc3f4de33644989d0d85cbb7b7f3e722c1))
+
+### Enhancements made
+
+- Improve message queue component [#20](https://github.com/jupyter-ai-contrib/jupyter-chat-components/pull/20) ([@Yahiewi](https://github.com/Yahiewi), [@brichet](https://github.com/brichet))
+
+### Maintenance and upkeep improvements
+
+- Group callbacks per component [#23](https://github.com/jupyter-ai-contrib/jupyter-chat-components/pull/23) ([@brichet](https://github.com/brichet), [@Yahiewi](https://github.com/Yahiewi))
+- Update URLs after moving the repo [#21](https://github.com/jupyter-ai-contrib/jupyter-chat-components/pull/21) ([@brichet](https://github.com/brichet), [@jtpio](https://github.com/jtpio))
+
+### Contributors to this release
+
+The following people contributed discussions, new ideas, code and documentation contributions, and review.
+See [our definition of contributors](https://github-activity.readthedocs.io/en/latest/use/#how-does-this-tool-define-contributions-in-the-reports).
+
+([GitHub contributors page for this release](https://github.com/jupyter-ai-contrib/jupyter-chat-components/graphs/contributors?from=2026-04-29&to=2026-05-31&type=c))
+
+@brichet ([activity](https://github.com/search?q=repo%3Ajupyter-ai-contrib%2Fjupyter-chat-components+involves%3Abrichet+updated%3A2026-04-29..2026-05-31&type=Issues)) | @jtpio ([activity](https://github.com/search?q=repo%3Ajupyter-ai-contrib%2Fjupyter-chat-components+involves%3Ajtpio+updated%3A2026-04-29..2026-05-31&type=Issues)) | @Yahiewi ([activity](https://github.com/search?q=repo%3Ajupyter-ai-contrib%2Fjupyter-chat-components+involves%3AYahiewi+updated%3A2026-04-29..2026-05-31&type=Issues))
+
+<!-- <END NEW CHANGELOG ENTRY> -->
+
 ## 0.5.0
 
 ([Full Changelog](https://github.com/jupyter-ai-contrib/jupyter-chat-components/compare/v0.4.1...f8a1015b2123dd9f9939d3bd06ee524e9becdfef))
@@ -18,8 +42,6 @@ See [our definition of contributors](https://github-activity.readthedocs.io/en/l
 ([GitHub contributors page for this release](https://github.com/jupyter-ai-contrib/jupyter-chat-components/graphs/contributors?from=2026-04-26&to=2026-04-29&type=c))
 
 @brichet ([activity](https://github.com/search?q=repo%3Ajupyter-ai-contrib%2Fjupyter-chat-components+involves%3Abrichet+updated%3A2026-04-26..2026-04-29&type=Issues)) | @Yahiewi ([activity](https://github.com/search?q=repo%3Ajupyter-ai-contrib%2Fjupyter-chat-components+involves%3AYahiewi+updated%3A2026-04-26..2026-04-29&type=Issues))
-
-<!-- <END NEW CHANGELOG ENTRY> -->
 
 ## 0.4.1
 
